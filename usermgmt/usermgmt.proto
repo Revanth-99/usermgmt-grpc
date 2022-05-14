@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package usermgmt;
+
+option go_package = "github.com/Revanth-99/usermgmt-grpc;usermgmt_grpc";
+
+message User {
+    string name = 1;
+    string email = 2;
+}
+
+message CreateNewUserRequest {
+    User user = 1;
+}
+
+message CreateNewUserResponse {
+    string name = 1;
+    string email = 2;
+    int32 id = 3;
+}
+
+service UserManagement {
+    rpc CreateNewUser(CreateNewUserRequest) returns (CreateNewUserResponse) {}
+}
